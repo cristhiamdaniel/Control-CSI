@@ -16,37 +16,40 @@ df.columns = ['V_pv','I_pv']
 df.insert(2,'P_pv',df['V_pv']*df['I_pv'])
 
 # Curva caracteristica
-# Ejecutar: %matplotlib auto
 
 def curvaVI(x,y):
     global fig
     
     fig = plt.figure(figsize=(8, 6))
     plt.plot(x,y)
-    plt.title('Curva caracteristica',fontsize=25)
-    plt.xlabel("V_pv",fontsize=18)
-    plt.ylabel("I_pv",fontsize=18)
+    plt.title('Curva caracteristica VI',fontsize=25)
+    plt.xlabel("V",fontsize=18)
+    plt.ylabel("A",fontsize=18)
     plt.xlim(0,195)
     plt.ylim(0,30)
     plt.grid()
     
     return plt.show()
     
-
 def curvaVP(x,y):
     global fig
     
     fig = plt.figure(figsize=(8, 6))
     plt.plot(x,y)
-    plt.title('Curva caracteristica',fontsize=25)
-    plt.xlabel("V_pv",fontsize=18)
-    plt.ylabel("P_pv",fontsize=18)
+    plt.title('Curva caracteristica PV',fontsize=25)
+    plt.xlabel("V",fontsize=18)
+    plt.ylabel("W",fontsize=18)
     plt.xlim(0,195)
     plt.ylim(0,4000)
     plt.grid()
     
     return plt.show()
 
+if __name__ == "__main__":
+    x = df['V_pv']
+    curvaVI(x,df['I_pv'])
+    curvaVP(x,df['P_pv'])
+    
 
 # Cargamos los puntos de ppchip
 df2 = pd.read_csv("pchip.csv", header=None)
@@ -86,3 +89,4 @@ def adjR(x, y, degree):
     results['r_squared'] = 1- (((1-(ssreg/sstot))*(len(y)-1))/(len(y)-degree-1))
 
     return results
+    

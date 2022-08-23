@@ -3,6 +3,69 @@
 \usepackage[spanish]{babel} 
 \usepackage{graphicx}
 \usepackage{amssymb, amsmath}
+
+\usepackage{listings}
+
+\usepackage{xcolor}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+%"mystyle" code listing set
+\lstset{style=mystyle}\usepackage{listings}
+
+\usepackage{xcolor}
+
+%New colors defined below
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+%Code listing style named "mystyle"
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+%"mystyle" code listing set
+\lstset{style=mystyle}
+
 \title{Proyecto de Investigación} 
 \author{Cristhiam Daniel Campos Julca} 
 
@@ -13,7 +76,7 @@
 	
 	En primer lugar se implementar en Simulink el modelo de un arreglo fotovoltaico, con paneles del modelo Sunset PX 72, que cuenta con 72 celdas de silicio polycristalino. Con la finalidad de obtener una potencia aproximada de 4.073 kW se colocan cuatro paneles en serie y tres en paralelo. 
 	
-	En la siguiente tabla se pueden observar los datos proporcionados por el panel Sunset PX a condiciones estándar de prueba, bajo una temperatura de	298.15 K equivalente a $25^{\circ}$ C y una radiación de 1000 W/m2. \newline\\
+	En la siguiente tabla se pueden observar los datos proporcionados por el panel Sunset PX a condiciones estándar de prueba, bajo una temperatura de	298.15 K equivalente a $25^{\circ}$ C y una radiación de 1000 W/m2. \newline
 	
 	
 	\begin{tabular}{| c | c |}
@@ -22,7 +85,7 @@
 		Potencia en el punto máximo $(P_{max})$  & 340 W \\ \hline
 		Tensión en circuito abierto $(V_{oc}])$ & 47.4 V \\ \hline
 		Tension en el punto de maxima potencia $(V_{mpp})$ & 38.4 V \\ \hline
-		Corriente de cortocircuito $ (I_{sc})$ & 38.4 W \\ \hline
+		Corriente de cortocircuito $ (I_{sc})$ & 9.35 A \\ \hline
 		Corriente en el punto de máxima potencia $(I_{mpp})$ & 8.84 A \\ \hline
 		Numero de celdas $(N_s)$ & 72 \\ \hline
 		Coeficiente de Temperatura $(I_{sc})$ & 0.037 $\%$ /K \\ \hline
@@ -30,12 +93,18 @@
 		Resistencia en serie $(R_s)$ & 0.39 $\Omega$\\ \hline
 		Resistencia en paralelo $(R_{sh})$ & 545.82 $\Omega$ \\ \hline
 	\end{tabular} 
+
 	
+	\newpage
+	
+	Para esta primera simulación se considera las entradas constantes, es decir una temperatura de $25^{\circ}$C y una irradiancia de 1000 W/$m^2$
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=0.9\textwidth]{./imagenes/simulink1.png}
 		\caption{Arreglo PV}
 	\end{figure} 
+	
+	Así mismo, se parte del modelo de los cinco parámetros, en donde la corriente y la tensión de salida se ven gobernadas por los siguientes ecuaciones representadas en subsistemas: 
 
 	\begin{figure}[htb]
 		\centering
@@ -43,18 +112,22 @@
 		\caption{Sub-sistemas del modelo}
 	\end{figure} 
 	
-	A continuación se muestra las ecuaciones para cada sub-sistema:
+	\newpage
+	
+	
 	
 	\begin{itemize}
 		\item Fotocorriente
+		
+	
 		
 			\begin{equation*}
 				I_{ph} = \left(I_{sc} + K_i \times \left(T - 298 \right) \right) \times \left(G/1000 \right)
 			\end{equation*}
 			
-			\begin{figure}[htb]
+			\begin{figure}[h!]
 				\centering
-				\includegraphics[width=0.9\textwidth]{./imagenes/simulink3.png}
+				\includegraphics[width=0.75\textwidth]{./imagenes/simulink3.png}
 				\caption{Subsistema para Fotocorriente}
 			\end{figure} 
 		
@@ -69,6 +142,8 @@
 				\includegraphics[width=0.9\textwidth]{./imagenes/simulink4.png}
 				\caption{Subsistema de Corriente de saturación}
 			\end{figure}
+		
+		\newpage
 		
 		\item Corriente de saturación reversa
 		
@@ -94,6 +169,8 @@
 				\caption{Subsistema de la corriente shunt}
 			\end{figure} 
 		
+		\newpage
+		
 		\item Corriente de salida
 		
 			\begin{equation*}
@@ -106,10 +183,69 @@
 				\caption{Subsistema de la corriente de salida}
 			\end{figure} 
 		
+		Los resultados son almacenados en un archivo CSV para su fácil manipulación en otros lenguajes como Python.
 		
+		Las curvas características que se obtienen del arreglo fotovoltaico son:
 		
+		\begin{lstlisting}[language=Python, caption=Python example]
+			import numpy as np
+			import pandas as pd
+			import matplotlib.pyplot as plt
+			
+			# Importamos los datos de Matlab
+			df = pd.read_csv("dataSunset72X.csv", header=None)
+			df.columns = ['V_pv','I_pv']
+			df.insert(2,'P_pv',df['V_pv']*df['I_pv'])
+			
+			# Curva caracteristica
+			
+			def curvaVI(x,y):
+			global fig
+			
+			fig = plt.figure(figsize=(8, 6))
+			plt.plot(x,y)
+			plt.title('Curva caracteristica VI',fontsize=25)
+			plt.xlabel("V",fontsize=18)
+			plt.ylabel("A",fontsize=18)
+			plt.xlim(0,195)
+			plt.ylim(0,30)
+			plt.grid()
+			
+			return plt.show()
+			
+			def curvaVP(x,y):
+			global fig
+			
+			fig = plt.figure(figsize=(8, 6))
+			plt.plot(x,y)
+			plt.title('Curva caracteristica PV',fontsize=25)
+			plt.xlabel("V",fontsize=18)
+			plt.ylabel("W",fontsize=18)
+			plt.xlim(0,195)
+			plt.ylim(0,4000)
+			plt.grid()
+			
+			return plt.show()
+			
+			if __name__ == "__main__":
+			x = df['V_pv']
+			curvaVI(x,df['I_pv'])
+			curvaVP(x,df['P_pv'])
+		\end{lstlisting}
 		
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width=0.65\textwidth]{./imagenes/curvaVI.png}
+			\caption{Curva característica Tensión vs Corriente}
+		\end{figure} 
 		
+		\newpage
+		
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width=0.65\textwidth]{./imagenes/curvaPV.png}
+			\caption{Curva característica Tensión vs Potencia}
+		\end{figure} 
 		
 		
 		
