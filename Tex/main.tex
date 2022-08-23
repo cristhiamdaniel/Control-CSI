@@ -1,0 +1,137 @@
+\documentclass[a4paper,12pt]{article} 
+\usepackage[utf8x]{inputenc} 
+\usepackage[spanish]{babel} 
+\usepackage{graphicx}
+\usepackage{amssymb, amsmath}
+\title{Proyecto de Investigación} 
+\author{Cristhiam Daniel Campos Julca} 
+
+\begin{document} 
+	\maketitle 
+	
+	\section{Simulación en Matlab}
+	
+	En primer lugar se implementar en Simulink el modelo de un arreglo fotovoltaico, con paneles del modelo Sunset PX 72, que cuenta con 72 celdas de silicio polycristalino. Con la finalidad de obtener una potencia aproximada de 4.073 kW se colocan cuatro paneles en serie y tres en paralelo. 
+	
+	En la siguiente tabla se pueden observar los datos proporcionados por el panel Sunset PX a condiciones estándar de prueba, bajo una temperatura de	298.15 K equivalente a $25^{\circ}$ C y una radiación de 1000 W/m2. \newline\\
+	
+	
+	\begin{tabular}{| c | c |}
+		\hline
+		\textbf{Datos bajo condiciones estándar} & \textbf{STD} \\ \hline
+		Potencia en el punto máximo $(P_{max})$  & 340 W \\ \hline
+		Tensión en circuito abierto $(V_{oc}])$ & 47.4 V \\ \hline
+		Tension en el punto de maxima potencia $(V_{mpp})$ & 38.4 V \\ \hline
+		Corriente de cortocircuito $ (I_{sc})$ & 38.4 W \\ \hline
+		Corriente en el punto de máxima potencia $(I_{mpp})$ & 8.84 A \\ \hline
+		Numero de celdas $(N_s)$ & 72 \\ \hline
+		Coeficiente de Temperatura $(I_{sc})$ & 0.037 $\%$ /K \\ \hline
+		Coeficiente de Temperatura $(V_{oc})$ & -0.32 $\%$ /K \\ \hline
+		Resistencia en serie $(R_s)$ & 0.39 $\Omega$\\ \hline
+		Resistencia en paralelo $(R_{sh})$ & 545.82 $\Omega$ \\ \hline
+	\end{tabular} 
+	
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=0.9\textwidth]{./imagenes/simulink1.png}
+		\caption{Arreglo PV}
+	\end{figure} 
+
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=0.9\textwidth]{./imagenes/simulink2.png}
+		\caption{Sub-sistemas del modelo}
+	\end{figure} 
+	
+	A continuación se muestra las ecuaciones para cada sub-sistema:
+	
+	\begin{itemize}
+		\item Fotocorriente
+		
+			\begin{equation*}
+				I_{ph} = \left(I_{sc} + K_i \times \left(T - 298 \right) \right) \times \left(G/1000 \right)
+			\end{equation*}
+			
+			\begin{figure}[htb]
+				\centering
+				\includegraphics[width=0.9\textwidth]{./imagenes/simulink3.png}
+				\caption{Subsistema para Fotocorriente}
+			\end{figure} 
+		
+		\item Corriente de saturación
+		
+			\begin{equation*}
+				I_o = I_{rs} \times \left( \frac{T}{T_n} \right)^3 \times \exp \left( \left( q \times E_{go} \times \left(1/T_n - 1/T \right) \right)/ \left(n \times k \right) \right)
+			\end{equation*}
+			
+			\begin{figure}[htb]
+				\centering
+				\includegraphics[width=0.9\textwidth]{./imagenes/simulink4.png}
+				\caption{Subsistema de Corriente de saturación}
+			\end{figure}
+		
+		\item Corriente de saturación reversa
+		
+			\begin{equation*}
+				I_{rs} = I_{sc} / (\exp((q*V_{oc})/(n*N_s*k*T ))-1)
+			\end{equation*}
+			
+			\begin{figure}[htb]
+				\centering
+				\includegraphics[width=0.9\textwidth]{./imagenes/simulink5.png}
+				\caption{Subsistema de Corriente de saturación reversa}
+			\end{figure}
+		
+		\item Corriente shunt
+		
+			\begin{equation*}
+				I_{sh} = (V +I*R_s)/R_{sh}
+			\end{equation*}
+			
+			\begin{figure}[htb]
+				\centering
+				\includegraphics[width=0.9\textwidth]{./imagenes/simulink6.png}
+				\caption{Subsistema de la corriente shunt}
+			\end{figure} 
+		
+		\item Corriente de salida
+		
+			\begin{equation*}
+				I = I_{ph}*NP - I_o * NP *(\exp((q*(V/NS + I*R_s/NP))/(n*N_s*k*T))-1)-I_{sh}
+			\end{equation*}
+			
+			\begin{figure}[htb]
+				\centering
+				\includegraphics[width=0.9\textwidth]{./imagenes/simulink7.png}
+				\caption{Subsistema de la corriente de salida}
+			\end{figure} 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	\end{itemize}
+	
+	
+	 
+	
+	 
+	
+
+	
+	
+	
+	
+	
+
+	
+
+	
+
+\end{document}
