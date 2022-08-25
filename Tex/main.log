@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022 - Flatpak) (preloaded format=pdflatex 2022.4.26)  23 AUG 2022 12:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022 - Flatpak) (preloaded format=pdflatex 2022.4.26)  25 AUG 2022 17:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -328,31 +328,36 @@ Package pdftex.def Info: ./imagenes/simulink7.png  used on input line 182.
 (pdftex.def)             Requested size: 350.99762pt x 165.46297pt.
 (/app/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [5 <./imagenes/simulink7.png (PNG copy)>]
-<./imagenes/curvaVI.png, id=36, 503.8825pt x 405.515pt>
-File: ./imagenes/curvaVI.png Graphic file (type png)
-<use ./imagenes/curvaVI.png>
-Package pdftex.def Info: ./imagenes/curvaVI.png  used on input line 238.
-(pdftex.def)             Requested size: 253.49762pt x 204.0069pt.
- [6 <./imagenes/curvaVI.png>]
-<./imagenes/curvaPV.png, id=42, 516.93124pt x 405.515pt>
-File: ./imagenes/curvaPV.png Graphic file (type png)
-<use ./imagenes/curvaPV.png>
-Package pdftex.def Info: ./imagenes/curvaPV.png  used on input line 246.
-(pdftex.def)             Requested size: 253.49762pt x 198.85876pt.
- [7 <./imagenes/curvaPV.png>]
+) (./graficas.py
+consecutive:
+[5 <./imagenes/simulink7.png (PNG copy)>])
+<./imagenes/curvacaracteristica.png, id=36, 433.62pt x 289.08pt>
+File: ./imagenes/curvacaracteristica.png Graphic file (type png)
+<use ./imagenes/curvacaracteristica.png>
+Package pdftex.def Info: ./imagenes/curvacaracteristica.png  used on input line
+ 194.
+(pdftex.def)             Requested size: 312.00119pt x 208.0095pt.
+ (./graficas.py
+consecutive:
+[6 <./imagenes/curvacaracteristica.png>])
+<./imagenes/curvaajuste.png, id=43, 433.62pt x 289.08pt>
+File: ./imagenes/curvaajuste.png Graphic file (type png)
+<use ./imagenes/curvaajuste.png>
+Package pdftex.def Info: ./imagenes/curvaajuste.png  used on input line 205.
+(pdftex.def)             Requested size: 350.99762pt x 234.00795pt.
+ [7 <./imagenes/curvaajuste.png>]
 (./main.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 ) ) 
 Here is how much of TeX's memory you used:
- 6991 strings out of 478268
- 99693 string characters out of 5847840
- 713491 words of memory out of 5000000
- 25132 multiletter control sequences out of 15000+600000
+ 7006 strings out of 478268
+ 100002 string characters out of 5847840
+ 767481 words of memory out of 5000000
+ 25141 multiletter control sequences out of 15000+600000
  478052 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,62p,331b,1893s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 55i,8n,62p,331b,1932s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></app/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></app/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></app/texlive/texmf-dist/fonts/ty
@@ -362,11 +367,12 @@ sfonts/cm/cmr12.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></app/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsy8.pfb></app/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmtt10.pfb>
-Output written on main.pdf (7 pages, 313175 bytes).
+sfonts/cm/cmtt10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+tt12.pfb>
+Output written on main.pdf (7 pages, 319028 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 100 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

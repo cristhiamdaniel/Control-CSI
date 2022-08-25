@@ -187,69 +187,25 @@
 		
 		Las curvas características que se obtienen del arreglo fotovoltaico son:
 		
-		\begin{lstlisting}[language=Python, caption=Python example]
-			import numpy as np
-			import pandas as pd
-			import matplotlib.pyplot as plt
-			
-			# Importamos los datos de Matlab
-			df = pd.read_csv("dataSunset72X.csv", header=None)
-			df.columns = ['V_pv','I_pv']
-			df.insert(2,'P_pv',df['V_pv']*df['I_pv'])
-			
-			# Curva caracteristica
-			
-			def curvaVI(x,y):
-			global fig
-			
-			fig = plt.figure(figsize=(8, 6))
-			plt.plot(x,y)
-			plt.title('Curva caracteristica VI',fontsize=25)
-			plt.xlabel("V",fontsize=18)
-			plt.ylabel("A",fontsize=18)
-			plt.xlim(0,195)
-			plt.ylim(0,30)
-			plt.grid()
-			
-			return plt.show()
-			
-			def curvaVP(x,y):
-			global fig
-			
-			fig = plt.figure(figsize=(8, 6))
-			plt.plot(x,y)
-			plt.title('Curva caracteristica PV',fontsize=25)
-			plt.xlabel("V",fontsize=18)
-			plt.ylabel("W",fontsize=18)
-			plt.xlim(0,195)
-			plt.ylim(0,4000)
-			plt.grid()
-			
-			return plt.show()
-			
-			if __name__ == "__main__":
-			x = df['V_pv']
-			curvaVI(x,df['I_pv'])
-			curvaVP(x,df['P_pv'])
-		\end{lstlisting}
+		\lstinputlisting[language=Python, firstline=12, lastline=39]{graficas.py}
 		
 		\begin{figure}[htb]
 			\centering
-			\includegraphics[width=0.65\textwidth]{./imagenes/curvaVI.png}
-			\caption{Curva característica Tensión vs Corriente}
+			\includegraphics[width=0.8\textwidth]{./imagenes/curvacaracteristica.png}
+			\caption{Curvas características}
 		\end{figure} 
 		
-		\newpage
-		
+
+Se hace uso de la función \texttt{numpy.poly1d()} que nos ayuda a definir una función polinomial de la siguiente manera:
+
+		\lstinputlisting[language=Python, firstline=42, lastline=64]{graficas.py}
+
 		\begin{figure}[htb]
 			\centering
-			\includegraphics[width=0.65\textwidth]{./imagenes/curvaPV.png}
-			\caption{Curva característica Tensión vs Potencia}
+			\includegraphics[width=0.9\textwidth]{./imagenes/curvaajuste.png}
+			\caption{Funciones Polinomiales}
 		\end{figure} 
-		
-		
-		
-		
+	
 		
 		
 	\end{itemize}
