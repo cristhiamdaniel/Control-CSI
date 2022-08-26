@@ -34,37 +34,9 @@
 }
 
 %"mystyle" code listing set
-\lstset{style=mystyle}\usepackage{listings}
-
-\usepackage{xcolor}
-
-%New colors defined below
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
-
-%Code listing style named "mystyle"
-\lstdefinestyle{mystyle}{
-	backgroundcolor=\color{backcolour}, commentstyle=\color{codegreen},
-	keywordstyle=\color{magenta},
-	numberstyle=\tiny\color{codegray},
-	stringstyle=\color{codepurple},
-	basicstyle=\ttfamily\footnotesize,
-	breakatwhitespace=false,         
-	breaklines=true,                 
-	captionpos=b,                    
-	keepspaces=true,                 
-	numbers=left,                    
-	numbersep=5pt,                  
-	showspaces=false,                
-	showstringspaces=false,
-	showtabs=false,                  
-	tabsize=2
-}
-
-%"mystyle" code listing set
 \lstset{style=mystyle}
+
+
 
 \title{Proyecto de Investigación} 
 \author{Cristhiam Daniel Campos Julca} 
@@ -206,24 +178,35 @@ Se hace uso de la función \texttt{numpy.poly1d()} que nos ayuda a definir una f
 			\caption{Funciones Polinomiales}
 		\end{figure} 
 	
-		
+Los resultados del R ajustado para cada modelo se obtienen de la siguiente función, y están organizados en la tabla:
+
+\lstinputlisting[language=Python, firstline=67, lastline=77]{graficas.py}
 		
 	\end{itemize}
 	
-	
+	\begin{tabular}{| c | c |}
+		\hline
+		Modelo & R cuadrado ajustado \\ \hline
+		Grado 1 & 0.4376094058571091 \\
+		Grado 2 & 0.7969866148484753 \\
+		Grado 3 & 0.9606980241040581 \\
+		Grado 4 & 0.9968071975795516 \\
+		Grado 5 & 0.9984087544931406 \\ \hline
+	\end{tabular}
 	 
 	
+	 Se selecciona el modelo de grado 5:
 	 
+	 \begin{figure}[htb]
+	 	\centering
+	 	\includegraphics[width=0.9\textwidth]{./imagenes/modeloSel.png}
+	 	\caption{Modelo seleccionado}
+	 \end{figure}
+	 
+	El resultado de los coeficientes de la función polinómica de grado 5 es:
 	
-
-	
-	
-	
-	
-	
-
-	
-
-	
+	\begin{equation*}
+		i(v) = -8.713\times 10^{-10}v^5 + 2.213\times 10^{-7} v^4 - 1.538\times 10^{-5} v^3 + 7.92\times 10^{-5} v^2 + 0.01166 v + 27.93
+	\end{equation*}
 
 \end{document}

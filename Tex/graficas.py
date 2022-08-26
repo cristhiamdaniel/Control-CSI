@@ -64,8 +64,61 @@ def curvasAjuste():
     plt.show()
 
 
+def adjR(x, y, degree):
+    results = {}
+    coeffs = np.polyfit(x, y, degree)
+    p = np.poly1d(coeffs)
+    yhat = p(x)
+    ybar = np.sum(y)/len(y)
+    ssreg = np.sum((yhat-ybar)**2)
+    sstot = np.sum((y - ybar)**2)
+    results['r_squared'] = 1- (((1-(ssreg/sstot))*(len(y)-1))/(len(y)-degree-1))
 
+    return results
+
+# Modelo 5
+#define scatterplot
+def graficaModelo(x,y, model):
+    polyline = np.linspace(1, 200, 100)
+    plt.scatter(x, y)
+    
+    #add fitted polynomial curve to scatterplot
+    plt.plot(polyline, model(polyline), '--', color='red')
+    plt.savefig("./imagenes/modeloSel.png")
+    plt.show()
+
+def funcion(x):
+    return (-8.713*10**(-10))*(x**5) + (2.213*10**(-7))* (x**4) + (- 1.538 * 10**(-5))* (x**3) + (7.92*10**(-5))* (x**2) + 0.01166 *x + 27.93
+
+def graficaModelo5():
+    x = np.linspace(0,200,100)
+    y = funcion(x)
+    plt.plot(x,y, label="Funcion polinomica")
+    plt.plot(df['V_pv'],df['I_pv'], label = "Curva VI")
+    plt.xlim(0,195)
+    plt.ylim(0,30)
+    plt.legend()
+    plt.grid()
+    
+    plt.show()
+    
+    
 if __name__ == "__main__":
-    curvaCaracteristica()
-    curvasAjuste()
-						
+    #curvaCaracteristica()
+    #curvasAjuste()
+    
+    v = df.V_pv
+    i = df.I_pv
+    p = df.P_pv
+    
+    
+    '''
+    for x in range(1,6):
+        print(adjR(v, i, x))
+    '''
+    #model5 = np.poly1d(np.polyfit(v, i, 5))
+    #graficaModelo(v, i, model5)
+    #print(model5)
+    graficaModelo5()
+    
+    

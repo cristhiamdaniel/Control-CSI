@@ -69,7 +69,17 @@ def adjR(x, y, degree):
 
     return results
 
-			
+# Modelo 5
+#define scatterplot
+def graficaModelo(x,y, model):
+    polyline = np.linspace(1, 200, 100)
+    plt.scatter(x, y)
+    
+    #add fitted polynomial curve to scatterplot
+    plt.plot(polyline, model(polyline), '--', color='red')
+    plt.show()
+
+
 if __name__ == "__main__":
     x = df['V_pv']
     curvaVI(x,df['I_pv'])
@@ -82,5 +92,4 @@ if __name__ == "__main__":
     print(adjR(df.V_pv, df.I_pv, 3))
     print(adjR(df.V_pv, df.I_pv, 4))
     print(adjR(df.V_pv, df.I_pv, 5))	
-						
 			
