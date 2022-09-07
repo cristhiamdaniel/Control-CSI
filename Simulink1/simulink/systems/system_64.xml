@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[23, 14, 1391, 680]</P>
+  <P Name="SystemRect">[0.000000, 0.000000, 0.000000, 0.000000]</P>
+  <P Name="SetExecutionDomain">off</P>
+  <P Name="ExecutionDomainType">Deduce</P>
+  <P Name="ZoomFactor">200</P>
+  <P Name="SimulinkSubDomain">Simulink</P>
+  <Block BlockType="Inport" Name="I" SID="65">
+    <P Name="Position">[20, 68, 50, 82]</P>
+    <P Name="ZOrder">219</P>
+  </Block>
+  <Block BlockType="Inport" Name="V" SID="66">
+    <P Name="Position">[20, 113, 50, 127]</P>
+    <P Name="ZOrder">220</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Sum" Name="Add" SID="59">
+    <P Name="Ports">[2, 1]</P>
+    <P Name="Position">[165, 87, 195, 118]</P>
+    <P Name="ZOrder">215</P>
+    <P Name="IconShape">rectangular</P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant" SID="56">
+    <P Name="Position">[25, 20, 55, 50]</P>
+    <P Name="ZOrder">212</P>
+    <P Name="Value">Rs</P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant1" SID="62">
+    <P Name="Position">[165, 140, 195, 170]</P>
+    <P Name="ZOrder">218</P>
+    <P Name="Value">Rsh</P>
+  </Block>
+  <Block BlockType="Product" Name="Divide" SID="61">
+    <P Name="Ports">[2, 1]</P>
+    <P Name="Position">[235, 97, 265, 128]</P>
+    <P Name="ZOrder">217</P>
+    <P Name="Inputs">*/</P>
+  </Block>
+  <Block BlockType="Product" Name="Product" SID="58">
+    <P Name="Ports">[2, 1]</P>
+    <P Name="Position">[95, 42, 125, 73]</P>
+    <P Name="ZOrder">214</P>
+  </Block>
+  <Block BlockType="Outport" Name="Ish" SID="67">
+    <P Name="Position">[320, 108, 350, 122]</P>
+    <P Name="ZOrder">221</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">24</P>
+    <P Name="Src">62#out:1</P>
+    <P Name="Points">[15, 0; 0, -35]</P>
+    <P Name="Dst">61#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">21</P>
+    <P Name="Src">58#out:1</P>
+    <P Name="Points">[15, 0; 0, 35]</P>
+    <P Name="Dst">59#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">28</P>
+    <P Name="Src">61#out:1</P>
+    <P Name="Dst">67#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">26</P>
+    <P Name="Src">65#out:1</P>
+    <P Name="Points">[13, 0; 0, -10]</P>
+    <P Name="Dst">58#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">23</P>
+    <P Name="Src">59#out:1</P>
+    <P Name="Dst">61#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">19</P>
+    <P Name="Src">56#out:1</P>
+    <P Name="Points">[10, 0; 0, 15]</P>
+    <P Name="Dst">58#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">27</P>
+    <P Name="Src">66#out:1</P>
+    <P Name="Points">[53, 0; 0, -10]</P>
+    <P Name="Dst">59#in:2</P>
+  </Line>
+</System>

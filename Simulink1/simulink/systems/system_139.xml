@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[23, 14, 1241, 680]</P>
+  <P Name="SystemRect">[0.000000, 0.000000, 0.000000, 0.000000]</P>
+  <P Name="SetExecutionDomain">off</P>
+  <P Name="ExecutionDomainType">Deduce</P>
+  <P Name="SimulinkSubDomain">Simulink</P>
+  <Block BlockType="Inport" Name="T" SID="140">
+    <P Name="Position">[20, 153, 50, 167]</P>
+    <P Name="ZOrder">269</P>
+  </Block>
+  <Block BlockType="Inport" Name="G" SID="141">
+    <P Name="Position">[20, 208, 50, 222]</P>
+    <P Name="ZOrder">270</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Sum" Name="Add" SID="114">
+    <P Name="Ports">[2, 1]</P>
+    <P Name="Position">[115, 137, 145, 168]</P>
+    <P Name="ZOrder">258</P>
+    <P Name="IconShape">rectangular</P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant" SID="115">
+    <P Name="Position">[30, 95, 60, 125]</P>
+    <P Name="ZOrder">259</P>
+    <P Name="Value">273</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="Current" SID="107">
+    <P Name="Ports">[5, 1]</P>
+    <P Name="Position">[460, 172, 510, 268]</P>
+    <P Name="ZOrder">257</P>
+    <P Name="RequestExecContextInheritance">off</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_107"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="Photo Current" SID="80">
+    <P Name="Ports">[2, 1]</P>
+    <P Name="Position">[355, 210, 395, 270]</P>
+    <P Name="ZOrder">233</P>
+    <P Name="RequestExecContextInheritance">off</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_80"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="Reverse Saturation Current" SID="53">
+    <P Name="Ports">[1, 1]</P>
+    <P Name="Position">[260, 105, 300, 165]</P>
+    <P Name="ZOrder">211</P>
+    <P Name="RequestExecContextInheritance">off</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_53"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="Saturation Current" SID="34">
+    <P Name="Ports">[2, 1]</P>
+    <P Name="Position">[355, 90, 395, 150]</P>
+    <P Name="ZOrder">195</P>
+    <P Name="RequestExecContextInheritance">off</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_34"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="Shunt Current" SID="64">
+    <P Name="Ports">[2, 1]</P>
+    <P Name="Position">[355, 310, 395, 370]</P>
+    <P Name="ZOrder">220</P>
+    <P Name="RequestExecContextInheritance">off</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_64"/>
+  </Block>
+  <Block BlockType="Reference" Name="Voltage" SID="137">
+    <P Name="Ports">[0, 1]</P>
+    <P Name="Position">[100, 25, 130, 55]</P>
+    <P Name="ZOrder">267</P>
+    <P Name="LibraryVersion">2.3</P>
+    <P Name="SourceBlock">simulink/Sources/Ramp</P>
+    <P Name="SourceType">Ramp</P>
+    <P Name="SourceProductBaseCode">SL</P>
+    <InstanceData>
+      <P Name="RTWMemSecFuncInitTerm">Inherit from model</P>
+      <P Name="RTWMemSecFuncExecute">Inherit from model</P>
+      <P Name="RTWMemSecDataConstants">Inherit from model</P>
+      <P Name="RTWMemSecDataInternal">Inherit from model</P>
+      <P Name="RTWMemSecDataParameters">Inherit from model</P>
+      <P Name="ContentPreviewEnabled">on</P>
+      <P Name="slope">1</P>
+      <P Name="start">0</P>
+      <P Name="InitialOutput">0</P>
+      <P Name="VectorParams1D">on</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Outport" Name="I" SID="142">
+    <P Name="Position">[620, 238, 650, 252]</P>
+    <P Name="ZOrder">271</P>
+  </Block>
+  <Block BlockType="Outport" Name="V" SID="164">
+    <P Name="Position">[360, -2, 390, 12]</P>
+    <P Name="ZOrder">275</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">128</P>
+    <P Name="Src">140#out:1</P>
+    <P Name="Dst">114#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">129</P>
+    <P Name="Src">141#out:1</P>
+    <P Name="Points">[47, 0; 0, 40]</P>
+    <P Name="Dst">80#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">76</P>
+    <P Name="Src">80#out:1</P>
+    <P Name="Dst">107#in:4</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">72</P>
+    <P Name="Src">115#out:1</P>
+    <P Name="Points">[23, 0; 0, 35]</P>
+    <P Name="Dst">114#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">77</P>
+    <P Name="Src">64#out:1</P>
+    <P Name="Points">[32, 0; 0, -80]</P>
+    <P Name="Dst">107#in:5</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">74</P>
+    <P Name="Src">53#out:1</P>
+    <P Name="Dst">34#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">82</P>
+    <P Name="Src">114#out:1</P>
+    <P Name="Points">[11, 0]</P>
+    <Branch>
+      <P Name="ZOrder">88</P>
+      <P Name="Points">[0, 70]</P>
+      <P Name="Dst">80#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">87</P>
+      <P Name="Points">[22, 0]</P>
+      <Branch>
+        <P Name="ZOrder">86</P>
+        <P Name="Points">[0, 45]</P>
+        <P Name="Dst">107#in:2</P>
+      </Branch>
+      <Branch>
+        <P Name="ZOrder">85</P>
+        <P Name="Points">[35, 0]</P>
+        <Branch>
+          <P Name="ZOrder">84</P>
+          <P Name="Points">[0, -58; 92, 0; 0, 8]</P>
+          <P Name="Dst">34#in:1</P>
+        </Branch>
+        <Branch>
+          <P Name="ZOrder">83</P>
+          <P Name="Points">[11, 0; 0, -20]</P>
+          <P Name="Dst">53#in:1</P>
+        </Branch>
+      </Branch>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">75</P>
+    <P Name="Src">34#out:1</P>
+    <P Name="Points">[36, 0; 0, 100]</P>
+    <P Name="Dst">107#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">81</P>
+    <P Name="Src">107#out:1</P>
+    <P Name="Points">[19, 0; 0, 25]</P>
+    <Branch>
+      <P Name="ZOrder">130</P>
+      <P Name="Dst">142#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">90</P>
+      <P Name="Points">[0, 52; -203, 0; 0, 28]</P>
+      <P Name="Dst">64#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">155</P>
+    <P Name="Src">137#out:1</P>
+    <P Name="Points">[66, 0]</P>
+    <Branch>
+      <P Name="ZOrder">157</P>
+      <P Name="Points">[0, 315]</P>
+      <P Name="Dst">64#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">156</P>
+      <P Name="Points">[118, 0]</P>
+      <Branch>
+        <P Name="ZOrder">163</P>
+        <P Name="Points">[0, -35]</P>
+        <P Name="Dst">164#in:1</P>
+      </Branch>
+      <Branch>
+        <P Name="ZOrder">162</P>
+        <P Name="Points">[105, 0; 0, 140]</P>
+        <P Name="Dst">107#in:1</P>
+      </Branch>
+    </Branch>
+  </Line>
+</System>
