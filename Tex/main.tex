@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{amssymb, amsmath}
 
+
 \usepackage{listings}
 
 \usepackage{xcolor}
@@ -44,11 +45,11 @@
 \begin{document} 
 	\maketitle 
 	
-	\section{Simulación en Matlab}
+	\section{Arreglo Fotovoltaico}
 	
-	En primer lugar se implementar en Simulink el modelo de un arreglo fotovoltaico, con paneles del modelo Sunset PX 72, que cuenta con 72 celdas de silicio polycristalino. Con la finalidad de obtener una potencia aproximada de 4.073 kW se colocan cuatro paneles en serie y tres en paralelo. 
+	Se  toma como referencia el panel Sunset PX 72, el cual cuenta con 72 celdas de silicio polycristalino. Con la finalidad de obtener una potencia aproximada de 4.073 kW se colocan cuatro paneles en serie y tres en paralelo. 
 	
-	En la siguiente tabla se pueden observar los datos proporcionados por el panel Sunset PX a condiciones estándar de prueba, bajo una temperatura de	298.15 K equivalente a $25^{\circ}$ C y una radiación de 1000 W/m2. \newline
+	En la siguiente tabla se pueden observar los datos proporcionados por el panel a condiciones estándar de prueba, bajo una temperatura de	298.15 K equivalente a $25^{\circ}$ C y una radiación de 1000 W/m2. \newline
 	
 	
 	\begin{tabular}{| c | c |}
@@ -66,147 +67,198 @@
 		Resistencia en paralelo $(R_{sh})$ & 545.82 $\Omega$ \\ \hline
 	\end{tabular} 
 
-	
 	\newpage
 	
+	\section{Modelo de los 5 Parámetros}
+	
+	El modelo eléctrico del panel fotovoltaico se representa mediante el modelo de los 5 parámetros,representado en la siguiente figura:
+	
+	
+	
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=0.9\textwidth]{./imagenes/circuito.png}
+		\caption{Modelo eléctrico de los 5 parámetros}
+	\end{figure}
+	
+	Este modelo es seleccionado ya que proporciona un buen equilibrio entre complejidad y precisión. El comportamiento matemático de este modelo se encuentra definido por la
+	ecuación:
+	
+	\begin{equation*}
+		I = I_{PV} - I_D - I_P = I_{PV} - I_0 \left ( \exp\left (  \frac{V+IR_S}{N_S \dot a \dot V_T}\right ) - 1 \right ) - \frac{V+IR_S}{R_p}
+	\end{equation*}
+
+	\section{Simulación Matlab/Simulink}
+	
+	Para la simulacion se divide en 4 fases:
+	
+	\begin{enumerate}
+		\item Entradas constantes
+		\item Temperatura constante e irradiancia variable
+		\item Irradiancia constante y temperatura variable
+		\item Entradas variables
+	\end{enumerate}
+
+	\newpage
+	
+	En simulink se diseño diferentes subsistemas que corresponden a cada ecuación que gobierna el modelo de la siguiente manera:
+	
+	\begin{itemize}
+		\item Subsistema General
+		
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width=0.9\textwidth]{./imagenes/simulink2.png}
+			\caption{Sub-sistemas del modelo}
+		\end{figure}
+		
+		
+		\item Fotocorriente
+		
+		
+		
+		\begin{equation*}
+			I_{ph} = \left(I_{sc} + K_i \times \left(T - 298 \right) \right) \times \left(G/1000 \right)
+		\end{equation*}
+		
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.55\textwidth]{./imagenes/simulink3.png}
+			\caption{Subsistema para Fotocorriente}
+		\end{figure} 
+	
+		\newpage
+		
+		\item Corriente de saturación
+		
+		\begin{equation*}
+			I_o = I_{rs} \times \left( \frac{T}{T_n} \right)^3 \times \exp \left( \left( q \times E_{go} \times \left(1/T_n - 1/T \right) \right)/ \left(n \times k \right) \right)
+		\end{equation*}
+		
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width=0.9\textwidth]{./imagenes/simulink4.png}
+			\caption{Subsistema de Corriente de saturación}
+		\end{figure}
+		
+		
+		
+		\item Corriente de saturación reversa
+		
+		\begin{equation*}
+			I_{rs} = I_{sc} / (\exp((q*V_{oc})/(n*N_s*k*T ))-1)
+		\end{equation*}
+		
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width=0.9\textwidth]{./imagenes/simulink5.png}
+			\caption{Subsistema de Corriente de saturación reversa}
+		\end{figure}
+		
+		\newpage
+		
+		\item Corriente shunt
+		
+		\begin{equation*}
+			I_{sh} = (V +I*R_s)/R_{sh}
+		\end{equation*}
+		
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width=0.9\textwidth]{./imagenes/simulink6.png}
+			\caption{Subsistema de la corriente shunt}
+		\end{figure} 
+		
+		
+		\item Corriente de salida
+		
+		\begin{equation*}
+			I = I_{ph}*NP - I_o * NP *(\exp((q*(V/NS + I*R_s/NP))/(n*N_s*k*T))-1)-I_{sh}
+		\end{equation*}
+		
+		\begin{figure}[htb]
+			\centering
+			\includegraphics[width=0.9\textwidth]{./imagenes/simulink7.png}
+			\caption{Subsistema de la corriente de salida}
+		\end{figure} 
+	\end{itemize}
+
+	\newpage
+	
+	\subsection{Temperatura e Irradiancia Constante}
+	
 	Para esta primera simulación se considera las entradas constantes, es decir una temperatura de $25^{\circ}$C y una irradiancia de 1000 W/$m^2$
+	
 	\begin{figure}[htb]
 		\centering
 		\includegraphics[width=0.9\textwidth]{./imagenes/simulink1.png}
 		\caption{Arreglo PV}
 	\end{figure} 
 	
-	Así mismo, se parte del modelo de los cinco parámetros, en donde la corriente y la tensión de salida se ven gobernadas por los siguientes ecuaciones representadas en subsistemas: 
-
-	\begin{figure}[htb]
-		\centering
-		\includegraphics[width=0.9\textwidth]{./imagenes/simulink2.png}
-		\caption{Sub-sistemas del modelo}
-	\end{figure} 
+	Se exportan los resultados generados y se guardan de manera local en un archivo: \textit{outputPV.txt}, el cual consta de dos columnas de datos recolectados de la tension y la corriente del arreglo fotovoltaico. \newline
 	
-	\newpage
-	
-	
-	
-	\begin{itemize}
-		\item Fotocorriente
+	Las curvas características que se obtienen del arreglo fotovoltaico son:
 		
-	
-		
-			\begin{equation*}
-				I_{ph} = \left(I_{sc} + K_i \times \left(T - 298 \right) \right) \times \left(G/1000 \right)
-			\end{equation*}
-			
-			\begin{figure}[h!]
-				\centering
-				\includegraphics[width=0.75\textwidth]{./imagenes/simulink3.png}
-				\caption{Subsistema para Fotocorriente}
-			\end{figure} 
-		
-		\item Corriente de saturación
-		
-			\begin{equation*}
-				I_o = I_{rs} \times \left( \frac{T}{T_n} \right)^3 \times \exp \left( \left( q \times E_{go} \times \left(1/T_n - 1/T \right) \right)/ \left(n \times k \right) \right)
-			\end{equation*}
-			
-			\begin{figure}[htb]
-				\centering
-				\includegraphics[width=0.9\textwidth]{./imagenes/simulink4.png}
-				\caption{Subsistema de Corriente de saturación}
-			\end{figure}
-		
-		\newpage
-		
-		\item Corriente de saturación reversa
-		
-			\begin{equation*}
-				I_{rs} = I_{sc} / (\exp((q*V_{oc})/(n*N_s*k*T ))-1)
-			\end{equation*}
-			
-			\begin{figure}[htb]
-				\centering
-				\includegraphics[width=0.9\textwidth]{./imagenes/simulink5.png}
-				\caption{Subsistema de Corriente de saturación reversa}
-			\end{figure}
-		
-		\item Corriente shunt
-		
-			\begin{equation*}
-				I_{sh} = (V +I*R_s)/R_{sh}
-			\end{equation*}
-			
-			\begin{figure}[htb]
-				\centering
-				\includegraphics[width=0.9\textwidth]{./imagenes/simulink6.png}
-				\caption{Subsistema de la corriente shunt}
-			\end{figure} 
-		
-		\newpage
-		
-		\item Corriente de salida
-		
-			\begin{equation*}
-				I = I_{ph}*NP - I_o * NP *(\exp((q*(V/NS + I*R_s/NP))/(n*N_s*k*T))-1)-I_{sh}
-			\end{equation*}
-			
-			\begin{figure}[htb]
-				\centering
-				\includegraphics[width=0.9\textwidth]{./imagenes/simulink7.png}
-				\caption{Subsistema de la corriente de salida}
-			\end{figure} 
-		
-		Los resultados son almacenados en un archivo CSV para su fácil manipulación en otros lenguajes como Python.
-		
-		Las curvas características que se obtienen del arreglo fotovoltaico son:
-		
-		\lstinputlisting[language=Python, firstline=12, lastline=39]{graficas.py}
+	\lstinputlisting[language=Python, firstline=47, lastline=82]{main.py}
 		
 		\begin{figure}[htb]
 			\centering
 			\includegraphics[width=0.8\textwidth]{./imagenes/curvacaracteristica.png}
 			\caption{Curvas características}
 		\end{figure} 
-		
-
-Se hace uso de la función \texttt{numpy.poly1d()} que nos ayuda a definir una función polinomial de la siguiente manera:
-
-		\lstinputlisting[language=Python, firstline=42, lastline=64]{graficas.py}
-
-		\begin{figure}[htb]
-			\centering
-			\includegraphics[width=0.9\textwidth]{./imagenes/curvaajuste.png}
-			\caption{Funciones Polinomiales}
-		\end{figure} 
 	
-Los resultados del R ajustado para cada modelo se obtienen de la siguiente función, y están organizados en la tabla:
-
-\lstinputlisting[language=Python, firstline=67, lastline=77]{graficas.py}
-		
-	\end{itemize}
+	Se extrae el punto de máxima potencia ubicado en la posición usando la siguiente función:
 	
-	\begin{tabular}{| c | c |}
+	\lstinputlisting[language=Python, firstline=34, lastline=39]{main.py}
+	
+	\begin{tabular}{| c | c | c | c |}
 		\hline
-		Modelo & R cuadrado ajustado \\ \hline
-		Grado 1 & 0.4376094058571091 \\
-		Grado 2 & 0.7969866148484753 \\
-		Grado 3 & 0.9606980241040581 \\
-		Grado 4 & 0.9968071975795516 \\
-		Grado 5 & 0.9984087544931406 \\ \hline
+		Indice & $V_{pv}$ & $I_{pv}$ & $P_{pv}$ \\ \hline
+		149755 & 149.76 & 25.944 & 3885.37344 \\ \hline
 	\end{tabular}
-	 
+
+	\newpage
 	
-	 Se selecciona el modelo de grado 5:
-	 
-	 \begin{figure}[htb]
-	 	\centering
-	 	\includegraphics[width=0.9\textwidth]{./imagenes/modeloSel.png}
-	 	\caption{Modelo seleccionado}
-	 \end{figure}
-	 
-	El resultado de los coeficientes de la función polinómica de grado 5 es:
+	Queremos obtener una función de la potencia que dependa de la tensión, $p=f(v)$ que se ajuste lo mejor posible a los valores experimentales. Una vez establecido la función a ajustar se determinan sus parámetros, en el caso de un polinomio, serán los coeficientes del polinomio de modo que los datos experimentales se desvíen lo menos posible de la fórmula empírica. \newline
+	
+	En python se hace uso de la función \texttt{numpy.poly1d()} que nos ayuda a definir una función polinomial de la siguiente manera:
+
+	\lstinputlisting[language=Python, firstline=116, lastline=119]{main.py}
+	
+	Ahora el criterio a evaluar experimentalmente es el siguiente: 
+	
+	\begin{itemize}
+		\item Se toma como criterio el punto de máxima potencia ubicado en el indice 149755
+		\item Se crea un arreglo $\left [ 10, 20, 30, 40, 50 \right ]$ en donde cada elemento corresponde a un rango, es decir: para el elemento $10$ entonces el rango a evaluar seria $149755 \pm  10*1000$
+		\item Se crea un arreglo que corresponde a los grados de ajuste del modelo: $\left [ 3,5,7 \right ]$. Se toman grados impares ya que la curva a modelar se ajusta perfectamente a este tipo de funciones.
+		\item Por lo tanto se obtiene 15 modelos polinómicos para el primer trozo de la función y otros 15 modelos para el segundo trozo.
+		\item Para seleccionar la función que mejor se ajusta al modelo, se evaluá la tensión en el punto de máxima potencia y se calcula un error de aproximación para poder escoger el menor de ellos.
+	\end{itemize}
+
+	
+	El resultado de los modelos para el primer trozo de la función es:
+	
+	\lstinputlisting[language=Python, firstline=121, lastline=193]{main.py}
+	
+	El resultado de los modelos para el segundo trozo de la función es:
+	
+	\lstinputlisting[language=Python, firstline=195, lastline=268]{main.py}
+	
+	Posteriormente se calcula el error de ajuste, evaluando la tensión en el punto de máxima potencia en la función obtenida, con respecto al verdadero valor de potencia máxima. Para lo cual se obtiene que los mejores modelos corresponden al modelo 10 y el modelo 0 para el primer y segundo trozo respectivamente. Por lo tanto la función final es:
 	
 	\begin{equation*}
-		i(v) = -8.713\times 10^{-10}v^5 + 2.213\times 10^{-7} v^4 - 1.538\times 10^{-5} v^3 + 7.92\times 10^{-5} v^2 + 0.01166 v + 27.93
+		p\left ( v \right ) = \begin{cases}
+			-1.481 \times 10^{-11} v^7 + 6.51\times 10^{-9}v^6 - 1.139\times 10^{-16}v^5 & \\
+			+ 0.0001002v^4 - 0.004614v^3  + 0.1031v^2 + 27.05v + 2.176 & \text{ Si } 0 \leq v \leq v_{mpp} \\ 
+			-0.005694v^3 - 0.04569v^2 + 412.8v - 3.7821 \times 10^{4} & \text{ Si } v_{mpp} < v \leq 200 
+		\end{cases}
 	\end{equation*}
-
+	
+	Si graficamos la función obtenida y la sobreponemos sobre la original (rojo) se tiene:
+	
+	\begin{figure}[htb]
+		\centering
+		\includegraphics[width=0.8\textwidth]{./imagenes/modelo1.png}
+		\caption{modelo 1 vs original}
+	\end{figure}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022 - Flatpak) (preloaded format=pdflatex 2022.4.26)  26 AUG 2022 13:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022 - Flatpak) (preloaded format=pdflatex 2022.4.26)  7 SEP 2022 14:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -207,25 +207,25 @@ LaTeX Info: Redefining \% on input line 8.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
-LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
 (/app/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
-LaTeX Info: Redefining \. on input line 44.
-LaTeX Info: Redefining \% on input line 44.
+LaTeX Info: Redefining \. on input line 45.
+LaTeX Info: Redefining \% on input line 45.
 
 (/app/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -254,62 +254,62 @@ e
 (/app/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
 
 
 (/app/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
 
 
 (/app/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
 [1
 
 {/app/texlive/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
-<./imagenes/simulink1.png, id=12, 597.73312pt x 277.035pt>
-File: ./imagenes/simulink1.png Graphic file (type png)
-<use ./imagenes/simulink1.png>
-Package pdftex.def Info: ./imagenes/simulink1.png  used on input line 75.
-(pdftex.def)             Requested size: 350.99762pt x 162.67987pt.
-<./imagenes/simulink2.png, id=13, 634.62094pt x 379.4175pt>
+<./imagenes/circuito.png, id=12, 505.13719pt x 284.56313pt>
+File: ./imagenes/circuito.png Graphic file (type png)
+<use ./imagenes/circuito.png>
+Package pdftex.def Info: ./imagenes/circuito.png  used on input line 80.
+(pdftex.def)             Requested size: 350.99762pt x 197.73389pt.
+ [2 <./imagenes/circuito.png (PNG copy)>]
+<./imagenes/simulink2.png, id=19, 634.62094pt x 379.4175pt>
 File: ./imagenes/simulink2.png Graphic file (type png)
 <use ./imagenes/simulink2.png>
-Package pdftex.def Info: ./imagenes/simulink2.png  used on input line 83.
+Package pdftex.def Info: ./imagenes/simulink2.png  used on input line 111.
 (pdftex.def)             Requested size: 350.99762pt x 209.85551pt.
- [2 <./imagenes/simulink1.png (PNG copy)> <./imagenes/simulink2.png (PNG copy)>
-]
-<./imagenes/simulink3.png, id=18, 533.74406pt x 338.76563pt>
+<./imagenes/simulink3.png, id=20, 533.74406pt x 338.76563pt>
 File: ./imagenes/simulink3.png Graphic file (type png)
 <use ./imagenes/simulink3.png>
-Package pdftex.def Info: ./imagenes/simulink3.png  used on input line 102.
-(pdftex.def)             Requested size: 292.5pt x 185.65485pt.
-<./imagenes/simulink4.png, id=19, 799.48688pt x 364.36125pt>
+Package pdftex.def Info: ./imagenes/simulink3.png  used on input line 126.
+(pdftex.def)             Requested size: 214.50119pt x 136.1448pt.
+ [3 <./imagenes/simulink2.png (PNG copy)> <./imagenes/simulink3.png (PNG copy)>
+]
+<./imagenes/simulink4.png, id=24, 799.48688pt x 364.36125pt>
 File: ./imagenes/simulink4.png Graphic file (type png)
 <use ./imagenes/simulink4.png>
-Package pdftex.def Info: ./imagenes/simulink4.png  used on input line 114.
+Package pdftex.def Info: ./imagenes/simulink4.png  used on input line 140.
 (pdftex.def)             Requested size: 350.99762pt x 159.96362pt.
- [3 <./imagenes/simulink3.png (PNG copy)> <./imagenes/simulink4.png (PNG copy)>
-]
 <./imagenes/simulink5.png, id=25, 685.05937pt x 362.85562pt>
 File: ./imagenes/simulink5.png Graphic file (type png)
 <use ./imagenes/simulink5.png>
-Package pdftex.def Info: ./imagenes/simulink5.png  used on input line 128.
+Package pdftex.def Info: ./imagenes/simulink5.png  used on input line 154.
 (pdftex.def)             Requested size: 350.99762pt x 185.91765pt.
-<./imagenes/simulink6.png, id=26, 530.73282pt x 264.99pt>
+ [4 <./imagenes/simulink4.png (PNG copy)> <./imagenes/simulink5.png (PNG copy)>
+]
+<./imagenes/simulink6.png, id=29, 530.73282pt x 264.99pt>
 File: ./imagenes/simulink6.png Graphic file (type png)
 <use ./imagenes/simulink6.png>
-Package pdftex.def Info: ./imagenes/simulink6.png  used on input line 140.
+Package pdftex.def Info: ./imagenes/simulink6.png  used on input line 168.
 (pdftex.def)             Requested size: 350.99762pt x 175.2538pt.
- [4 <./imagenes/simulink5.png (PNG copy)> <./imagenes/simulink6.png (PNG copy)>
-]
-Overfull \hbox (18.81755pt too wide) detected at line 150
+
+Overfull \hbox (18.81755pt too wide) detected at line 177
 \OML/cmm/m/it/12 I \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 I[] \OMS/cmsy/m/n/12 ^^C 
 \OML/cmm/m/it/12 NP \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 I[] \OMS/cmsy/m/n/12 
 ^^C \OML/cmm/m/it/12 NP \OMS/cmsy/m/n/12 ^^C \OT1/cmr/m/n/12 ([]((\OML/cmm/m/it
@@ -324,58 +324,65 @@ n/12 ))\OML/cmm/m/it/12 =\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 n \OMS/cmsy/m/n/12 ^
 <./imagenes/simulink7.png, id=30, 697.8572pt x 328.97906pt>
 File: ./imagenes/simulink7.png Graphic file (type png)
 <use ./imagenes/simulink7.png>
-Package pdftex.def Info: ./imagenes/simulink7.png  used on input line 154.
+Package pdftex.def Info: ./imagenes/simulink7.png  used on input line 181.
 (pdftex.def)             Requested size: 350.99762pt x 165.46297pt.
+[5 <./imagenes/simulink6.png (PNG copy)> <./imagenes/simulink7.png (PNG copy)>]
+<./imagenes/simulink1.png, id=34, 597.73312pt x 277.035pt>
+File: ./imagenes/simulink1.png Graphic file (type png)
+<use ./imagenes/simulink1.png>
+Package pdftex.def Info: ./imagenes/simulink1.png  used on input line 194.
+(pdftex.def)             Requested size: 350.99762pt x 162.67987pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
+
+ []
+
 (/app/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) (./graficas.py
+) (./main.py
 consecutive:
-[5 <./imagenes/simulink7.png (PNG copy)>])
-<./imagenes/curvacaracteristica.png, id=36, 433.62pt x 289.08pt>
+[6 <./imagenes/simulink1.png (PNG copy)>])
+<./imagenes/curvacaracteristica.png, id=41, 425.59pt x 281.05pt>
 File: ./imagenes/curvacaracteristica.png Graphic file (type png)
 <use ./imagenes/curvacaracteristica.png>
 Package pdftex.def Info: ./imagenes/curvacaracteristica.png  used on input line
- 166.
-(pdftex.def)             Requested size: 312.00119pt x 208.0095pt.
- (./graficas.py
+ 206.
+(pdftex.def)             Requested size: 312.00119pt x 206.0482pt.
+ (./main.py
 consecutive:
-[6 <./imagenes/curvacaracteristica.png>])
-<./imagenes/curvaajuste.png, id=43, 433.62pt x 289.08pt>
-File: ./imagenes/curvaajuste.png Graphic file (type png)
-<use ./imagenes/curvaajuste.png>
-Package pdftex.def Info: ./imagenes/curvaajuste.png  used on input line 177.
-(pdftex.def)             Requested size: 350.99762pt x 234.00795pt.
- (./graficas.py
-consecutive:
-) [7 <./imagenes/curvaajuste.png>]
-<./imagenes/modeloSel.png, id=49, 433.62pt x 289.08pt>
-File: ./imagenes/modeloSel.png Graphic file (type png)
-<use ./imagenes/modeloSel.png>
-Package pdftex.def Info: ./imagenes/modeloSel.png  used on input line 202.
-(pdftex.def)             Requested size: 350.99762pt x 234.00795pt.
+) [7 <./imagenes/curvacaracteristica.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
 
-Overfull \hbox (50.3256pt too wide) detected at line 210
-\OML/cmm/m/it/12 i\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 v\OT1/cmr/m/n/12 ) = \OMS/c
-msy/m/n/12 ^^@\OT1/cmr/m/n/12 8[]713 \OMS/cmsy/m/n/12 ^^B \OT1/cmr/m/n/12 10[]\
-OML/cmm/m/it/12 v[] \OT1/cmr/m/n/12 + 2[]213 \OMS/cmsy/m/n/12 ^^B \OT1/cmr/m/n/
-12 10[]\OML/cmm/m/it/12 v[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 1[]538 \OMS/cm
-sy/m/n/12 ^^B \OT1/cmr/m/n/12 10[]\OML/cmm/m/it/12 v[] \OT1/cmr/m/n/12 + 7[]92 
-\OMS/cmsy/m/n/12 ^^B \OT1/cmr/m/n/12 10[]\OML/cmm/m/it/12 v[] \OT1/cmr/m/n/12 +
- 0[]01166\OML/cmm/m/it/12 v \OT1/cmr/m/n/12 + 27[]93
  []
 
-[8 <./imagenes/modeloSel.png>] (./main.aux
+(./main.py
+consecutive:
+) (./main.py
+consecutive:
+[8] [9]) (./main.py
+consecutive:
+[10] [11])
+Overfull \hbox (54.72491pt too wide) detected at line 255
+\OML/cmm/m/it/12 p [] \OT1/cmr/m/n/12 = []
+ []
+
+<./imagenes/modelo1.png, id=61, 382.42876pt x 252.945pt>
+File: ./imagenes/modelo1.png Graphic file (type png)
+<use ./imagenes/modelo1.png>
+Package pdftex.def Info: ./imagenes/modelo1.png  used on input line 261.
+(pdftex.def)             Requested size: 312.00119pt x 206.37415pt.
+[12 <./imagenes/modelo1.png>] (./main.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 ) ) 
 Here is how much of TeX's memory you used:
- 7028 strings out of 478268
- 100343 string characters out of 5847840
- 767480 words of memory out of 5000000
- 25160 multiletter control sequences out of 15000+600000
- 478052 words of font info for 63 fonts, out of 8000000 for 9000
+ 7030 strings out of 478268
+ 100281 string characters out of 5847840
+ 1061573 words of memory out of 5000000
+ 25158 multiletter control sequences out of 15000+600000
+ 478706 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,8n,62p,331b,1932s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 55i,9n,62p,417b,1870s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></app/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></app/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></app/texlive/texmf-dist/fonts/ty
@@ -385,12 +392,12 @@ sfonts/cm/cmr12.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></app/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></app/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsy8.pfb></app/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmtt10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-tt12.pfb>
-Output written on main.pdf (8 pages, 331750 bytes).
+sfonts/cm/cmti12.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+tt10.pfb></app/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on main.pdf (12 pages, 358335 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 121 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

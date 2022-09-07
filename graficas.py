@@ -4,7 +4,7 @@ import numpy as np
 
 # Importamos los datos de Matlab
 #df = pd.read_csv("dataSunset72X.csv", header=None)
-df = pd.read_csv("myFile.txt", header=None)
+df = pd.read_csv("/Tex/myFile.txt", header=None)
 df.columns = ["V_pv","I_pv"]
 df.insert(2,"P_pv",df["V_pv"]*df["I_pv"])
 
@@ -39,6 +39,10 @@ def curvaCaracteristica():
     plt.savefig("./imagenes/curvacaracteristica.png")
     plt.show()
 
+models = []
+for i in range(1,10):
+    model = np.poly1d(np.polyfit(df.V_pv, df.I_pv, i))
+    models.append(models)
 
 def curvasAjuste():
     #fit polynomial models up to degree 5
